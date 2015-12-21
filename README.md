@@ -46,4 +46,27 @@ examples
  mkdir -p %{buildroot}%{xmldir}
 ```
 
+- `convert.php` script generated:
+```diff
+@@ -29,19 +29,15 @@
+ Source0:        http://pear.phpunit.de/channel.xml
+ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+ BuildArch:      noarch
+-%if 0%{?sles_version} >= 10
+-BuildRequires:  php53
+-BuildRequires:  php53-pear
+-Requires:       php53
+-Requires:       php53-pear
+-%else
++
+ BuildRequires:  php >= 5.3.1
+ BuildRequires:  php-pear >= 5.3.1
+ Requires:       php >= 5.3.1
+ Requires:       php-pear >= 5.3.1
+-%endif
++
+ Provides:       php5-pear-channel-phpunitde > 1.0
+ Obsoletes:      php5-pear-channel-phpunitde = 1.0
+```
+
 Along with the changes, changelog entries are created, and commits or submit requests.
